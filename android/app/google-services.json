@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "71370198833",
+    "project_id": "thamara-9d222",
+    "storage_bucket": "thamara-9d222.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71370198833:android:2ef3ba1f5c340394c82a10",
+        "android_client_info": {
+          "package_name": "com.roxytechnologies.thamra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH8cVy8zP3PZW6GxeO5J0Ytx7X8H1nYP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
