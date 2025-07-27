@@ -69,6 +69,36 @@ class S {
   String get Files {
     return Intl.message('الملفات', name: 'Files', desc: '', args: []);
   }
+
+  /// `مهامي`
+  String get MyTasks {
+    return Intl.message('مهامي', name: 'MyTasks', desc: '', args: []);
+  }
+
+  /// `قائمة المهام`
+  String get ToDoList {
+    return Intl.message('قائمة المهام', name: 'ToDoList', desc: '', args: []);
+  }
+
+  /// `روتيني اليومي`
+  String get MyDailyRoutine {
+    return Intl.message(
+      'روتيني اليومي',
+      name: 'MyDailyRoutine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `جاري تحميل المهام...`
+  String get LoadingTasks {
+    return Intl.message(
+      'جاري تحميل المهام...',
+      name: 'LoadingTasks',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

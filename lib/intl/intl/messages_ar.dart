@@ -24,6 +24,12 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Books": MessageLookupByLibrary.simpleMessage("الكتب"),
     "Files": MessageLookupByLibrary.simpleMessage("الملفات"),
+    "LoadingTasks": MessageLookupByLibrary.simpleMessage(
+      "جاري تحميل المهام...",
+    ),
+    "MyDailyRoutine": MessageLookupByLibrary.simpleMessage("روتيني اليومي"),
+    "MyTasks": MessageLookupByLibrary.simpleMessage("مهامي"),
     "Search": MessageLookupByLibrary.simpleMessage("بحث"),
+    "ToDoList": MessageLookupByLibrary.simpleMessage("قائمة المهام"),
   };
 }

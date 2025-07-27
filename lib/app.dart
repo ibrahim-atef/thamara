@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/theme/app_theme.dart';
+import 'intl/l10n.dart';
 import 'main_layout.dart';
 import 'core/localization/cubit/language_cubit.dart';
 import 'core/localization/cubit/language_state.dart';
@@ -22,6 +23,7 @@ class App extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme:  AppTheme.lightTheme,
             localizationsDelegates: const [
+               S.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,

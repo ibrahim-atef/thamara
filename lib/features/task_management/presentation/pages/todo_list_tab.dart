@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/date_picker_helper.dart';
+import '../../../../intl/l10n.dart';
 import '../cubit/task_cubit.dart';
 import '../cubit/task_state.dart';
 import '../../domain/entities/task.dart';
@@ -16,7 +17,7 @@ class TodoListTab extends StatelessWidget {
     return BlocBuilder<TaskCubit, TaskState>(
       builder: (context, state) {
         return switch (state) {
-          TaskLoading() => const LoadingWidget(message: 'جاري تحميل المهام...'),
+          TaskLoading() =>   LoadingWidget(message: S.of(context).LoadingTasks),
           TaskLoaded() => _buildTaskList(context, state.tasks),
           TaskError() => _buildErrorState(context, state.message),
           _ => const SizedBox.shrink(),

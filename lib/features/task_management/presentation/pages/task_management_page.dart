@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/service_locator.dart';
+import '../../../../intl/l10n.dart';
 import '../cubit/task_cubit.dart';
 import 'todo_list_tab.dart';
 import 'routine_tab.dart';
@@ -36,12 +37,12 @@ class _TaskManagementPageState extends State<TaskManagementPage>
         textDirection: TextDirection.rtl,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('مهامي'),
+            title:   Text( S.of(context).MyTasks ),
             bottom: TabBar(
               controller: _tabController,
-              tabs: const [
-                Tab(text: 'قائمة المهام'),
-                Tab(text: 'روتيني اليومي'),
+              tabs: [
+                Tab(text: S.of(context).ToDoList),
+                Tab(text: S.of(context).MyDailyRoutine),
               ],
             ),
           ),

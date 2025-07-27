@@ -2,5 +2,11 @@
   "@@locale": "en",
   "Search": "Search",
   "Books": "Books",
-  "Files": "Files"
+  "Files": "Files",
+  "MyTasks": "My tasks",
+  "ToDoList": "To Do List",
+  "MyDailyRoutine": "My daily routine",
+  "LoadingTasks": "Loading tasks..."
+
+
 }
