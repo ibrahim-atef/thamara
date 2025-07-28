@@ -62,31 +62,85 @@ class TaskCubit extends Cubit<TaskState> {
     try {
       final newStatus = task.status == 'completed' ? 'pending' : 'completed';
       await updateTask(task.id, {'status': newStatus});
-      await loadAll();
-    } catch (e) {
-      dummyDataService.updateTaskStatus(task.id,
-          task.status == 'completed' ? 'pending' : 'completed');
-      await loadAll();
+
+       final updatedTasks = _currentTasks.map((t) =>
+      t.id == task.id ? t.copyWith(status: newStatus) : t
+      ).toList();
+
+      _currentTasks = updatedTasks;
+      emit(TaskLoaded(tasks: List.from(_currentTasks), routines: List.from(_currentRoutines)));
+      } catch (e) {
+        dummyDataService.updateTaskStatus(task.id,
+            task.status == 'completed' ? 'pending' : 'completed');
+
+         final updatedTasks = _currentTasks.map((t) =>
+        t.id == task.id ? t.copyWith(status: task.status == 'completed' ? 'pending' : 'completed') : t
+        ).toList();
+
+        _currentTasks = updatedTasks;
+        emit(TaskLoaded(tasks: List.from(_currentTasks), routines: List.from(_currentRoutines)));
+      }
     }
-  }
 
   Future<void> updateTaskDueDate(Task task, String dueDate) async {
     try {
       await updateTask(task.id, {'due_date': dueDate});
-      await loadAll();
+
+       final updatedTasks = _currentTasks.map((t) =>
+      t.id == task.id ? t.copyWith(dueDate: dueDate) : t
+      ).toList();
+
+      _currentTasks = updatedTasks;
+      emit(TaskLoaded(tasks: List.from(_currentTasks), routines: List.from(_currentRoutines)));
     } catch (e) {
       dummyDataService.updateTaskDueDate(task.id, dueDate);
-      await loadAll();
+
+       final updatedTasks = _currentTasks.map((t) =>
+      t.id == task.id ? t.copyWith(dueDate: dueDate) : t
+      ).toList();
+
+      _currentTasks = updatedTasks;
+      emit(TaskLoaded(tasks: List.from(_currentTasks), routines: List.from(_currentRoutines)));
     }
   }
 
   Future<void> completeRoutineAction(int id) async {
     try {
       await completeRoutine(id);
-      await loadAll();
+
+      final routineIndex = _currentRoutines.indexWhere((r) => r.id == id);
+      if (routineIndex != -1) {
+        final routine = _currentRoutines[routineIndex];
+
+
+        final updatedRoutines = List<Routine>.from(_currentRoutines);
+        updatedRoutines[routineIndex] = routine.copyWith(
+          completed: !routine.completed,
+        );
+
+        _currentRoutines = updatedRoutines;
+        emit(TaskLoaded(
+          tasks: List.from(_currentTasks),
+          routines: List.from(_currentRoutines),
+        ));
+      }
     } catch (e) {
-      dummyDataService.completeRoutine(id);
-      await loadAll();
+      dummyDataService.toggleRoutineCompletion(id);
+
+      final updatedRoutine = dummyDataService.getRoutineById(id);
+      if (updatedRoutine != null) {
+        final routineIndex = _currentRoutines.indexWhere((r) => r.id == id);
+        if (routineIndex != -1) {
+          final updatedRoutines = List<Routine>.from(_currentRoutines);
+          updatedRoutines[routineIndex] = updatedRoutine;
+
+          _currentRoutines = updatedRoutines;
+          emit(TaskLoaded(
+            tasks: List.from(_currentTasks),
+            routines: List.from(_currentRoutines),
+          ));
+        }
+      }
     }
   }
 

@@ -6,7 +6,12 @@
   "MyTasks": "My tasks",
   "ToDoList": "To Do List",
   "MyDailyRoutine": "My daily routine",
-  "LoadingTasks": "Loading tasks..."
-
+  "LoadingTasks": "Loading tasks...",
+  "Dragitemsupordowntoreorder": "Long press and Drag items up \nor down to reorder",
+  "NoTasks": "There are no tasks currently\nStart by adding a new task",
+  "LoadingRoutines": "Loading routines...",
+  "NoRoutines": "There are no routines currently\nStart by adding a new routine",
+  "DataLoadError": "Data load error",
+  "Retry": "Retry"
 
 }

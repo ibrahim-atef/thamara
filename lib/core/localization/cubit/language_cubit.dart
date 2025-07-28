@@ -13,10 +13,10 @@ class LanguageCubit extends Cubit<LanguageState> {
   }
 
   void changeLanguage(Locale locale) {
-    emit(LanguageChanged(locale)); // ✅ Use concrete class
+    emit(LanguageChanged(locale));
   }
 
   void setLocale(Locale locale) {
-    emit(LanguageChanged(locale)); // Optional alias
+    emit(LanguageChanged(locale));
   }
 }

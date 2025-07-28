@@ -99,6 +99,61 @@ class S {
       args: [],
     );
   }
+
+  /// `اضغط مطولا و اسحب العناصر لأعلى \nأو لأسفل لإعادة الترتيب`
+  String get Dragitemsupordowntoreorder {
+    return Intl.message(
+      'اضغط مطولا و اسحب العناصر لأعلى \nأو لأسفل لإعادة الترتيب',
+      name: 'Dragitemsupordowntoreorder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا توجد مهام حالياً\nابدأ بإضافة مهمة جديدة`
+  String get NoTasks {
+    return Intl.message(
+      'لا توجد مهام حالياً\nابدأ بإضافة مهمة جديدة',
+      name: 'NoTasks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `جاري تحميل الروتينات...`
+  String get LoadingRoutines {
+    return Intl.message(
+      'جاري تحميل الروتينات...',
+      name: 'LoadingRoutines',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد روتين حالياً\nابدأ بإضافة روتين جديد`
+  String get NoRoutines {
+    return Intl.message(
+      'لا يوجد روتين حالياً\nابدأ بإضافة روتين جديد',
+      name: 'NoRoutines',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حدث خطأ في تحميل البيانات`
+  String get DataLoadError {
+    return Intl.message(
+      'حدث خطأ في تحميل البيانات',
+      name: 'DataLoadError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اعادة المحاولة`
+  String get Retry {
+    return Intl.message('اعادة المحاولة', name: 'Retry', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

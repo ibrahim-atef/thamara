@@ -23,12 +23,28 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Books": MessageLookupByLibrary.simpleMessage("الكتب"),
+    "DataLoadError": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ في تحميل البيانات",
+    ),
+    "Dragitemsupordowntoreorder": MessageLookupByLibrary.simpleMessage(
+      "اضغط مطولا و اسحب العناصر لأعلى \nأو لأسفل لإعادة الترتيب",
+    ),
     "Files": MessageLookupByLibrary.simpleMessage("الملفات"),
+    "LoadingRoutines": MessageLookupByLibrary.simpleMessage(
+      "جاري تحميل الروتينات...",
+    ),
     "LoadingTasks": MessageLookupByLibrary.simpleMessage(
       "جاري تحميل المهام...",
     ),
     "MyDailyRoutine": MessageLookupByLibrary.simpleMessage("روتيني اليومي"),
     "MyTasks": MessageLookupByLibrary.simpleMessage("مهامي"),
+    "NoRoutines": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد روتين حالياً\nابدأ بإضافة روتين جديد",
+    ),
+    "NoTasks": MessageLookupByLibrary.simpleMessage(
+      "لا توجد مهام حالياً\nابدأ بإضافة مهمة جديدة",
+    ),
+    "Retry": MessageLookupByLibrary.simpleMessage("اعادة المحاولة"),
     "Search": MessageLookupByLibrary.simpleMessage("بحث"),
     "ToDoList": MessageLookupByLibrary.simpleMessage("قائمة المهام"),
   };

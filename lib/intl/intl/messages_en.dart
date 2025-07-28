@@ -23,10 +23,24 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Books": MessageLookupByLibrary.simpleMessage("Books"),
+    "DataLoadError": MessageLookupByLibrary.simpleMessage("Data load error"),
+    "Dragitemsupordowntoreorder": MessageLookupByLibrary.simpleMessage(
+      "Long press and Drag items up \nor down to reorder",
+    ),
     "Files": MessageLookupByLibrary.simpleMessage("Files"),
+    "LoadingRoutines": MessageLookupByLibrary.simpleMessage(
+      "Loading routines...",
+    ),
     "LoadingTasks": MessageLookupByLibrary.simpleMessage("Loading tasks..."),
     "MyDailyRoutine": MessageLookupByLibrary.simpleMessage("My daily routine"),
     "MyTasks": MessageLookupByLibrary.simpleMessage("My tasks"),
+    "NoRoutines": MessageLookupByLibrary.simpleMessage(
+      "There are no routines currently\nStart by adding a new routine",
+    ),
+    "NoTasks": MessageLookupByLibrary.simpleMessage(
+      "There are no tasks currently\nStart by adding a new task",
+    ),
+    "Retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "Search": MessageLookupByLibrary.simpleMessage("Search"),
     "ToDoList": MessageLookupByLibrary.simpleMessage("To Do List"),
   };

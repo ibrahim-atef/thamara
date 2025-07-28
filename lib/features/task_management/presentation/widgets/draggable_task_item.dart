@@ -16,40 +16,78 @@ class DraggableTaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isCompleted = task.status == 'completed';
+
     return Card(
       key: key,
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      child: ListTile(
-        leading: Checkbox(
-          value: task.status == 'completed',
-          onChanged: (_) => onToggle(),
-        ),
-        title: Text(
-          task.action,
-          style: GoogleFonts.cairo(
-            decoration: task.status == 'completed'
-                ? TextDecoration.lineThrough
-                : null,
-          ),
-        ),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'الكتاب: ${task.bookTitle}',
-              style: GoogleFonts.cairo(fontSize: 14),
-            ),
-            if (task.dueDate != null)
-              Text(
-                'تاريخ التسليم: ${_formatDate(task.dueDate!)}',
-                style: GoogleFonts.cairo(fontSize: 14),
+      child: Stack(
+        children: [
+          if (isCompleted)
+            Positioned(
+              top: 8,
+              left: 8,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: Color(0xFF7D913A),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  'مكتمل',
+                  style: GoogleFonts.cairo(
+                    fontSize: 12,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-          ],
-        ),
-        trailing: IconButton(
-          icon: const Icon(Icons.date_range),
-          onPressed: onDatePressed,
-        ),
+            ),
+          ListTile(
+            leading: Checkbox(
+              value: isCompleted,
+              onChanged: (_) => onToggle(),
+              activeColor: Color(0xFF7D913A),
+            ),
+            title: Text(
+              task.action,
+              style: GoogleFonts.cairo(
+                color: isCompleted ? Colors.grey[600] : null,
+                fontWeight: isCompleted ? FontWeight.normal : FontWeight.w500,
+              ),
+            ),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'الكتاب: ${task.bookTitle}',
+                  style: GoogleFonts.cairo(
+                    fontSize: 14,
+                    color: isCompleted ? Colors.grey[500] : null,
+                  ),
+                ),
+                if (task.dueDate != null)
+                  Text(
+                    'تاريخ التسليم: ${_formatDate(task.dueDate!)}',
+                    style: GoogleFonts.cairo(
+                      fontSize: 14,
+                      color: isCompleted ? Colors.grey[500] : null,
+                    ),
+                  ),
+              ],
+            ),
+            trailing: Column(mainAxisAlignment: MainAxisAlignment.end ,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Spacer(),
+                IconButton(
+                  icon: Icon(Icons.date_range, color: isCompleted ? Colors.grey[500] : null),
+                  onPressed: onDatePressed,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
